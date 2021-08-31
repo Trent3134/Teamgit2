@@ -1,8 +1,8 @@
 import React from 'react'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 
- const baseUrl = "https://api.openweathermap.org/data/2.5/weather?q=indianapolis&appid=79161887469fcc530c9dfbad7392edb7"
+ const baseUrl = "https://api.openweathermap.org/data/2.5/weather?q=indianapolis&appid=d00146c7b74247f463e37aaefff5a9ac"
 
 
 function Home(){
@@ -14,15 +14,18 @@ function Home(){
         .then(data=> {
             console.log(data)
             setResults(data)})
- 
-        .catch(err=> console.log(err))
+            
+            .catch(err=> console.log(err))
+            
+        }
         
-    }
-  
+        useEffect(()=> {
+            fetchResults()
+   
+        }, []) 
 return(
     <div>
-        {fetchResults()}
-
+        
     </div>
     
   
